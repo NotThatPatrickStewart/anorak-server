@@ -23,14 +23,14 @@ for whiskey in whiskey_dict["whiskeys"]:
     for tag in whiskey["tags"]:
         tag_info = {}
         tag_info["title"] = tag["title"]
-        tag_info["count"] = tag["count"]
-        tag_info["normalized_count"] = tag["normalized_count"]
         tag_info["id"] = tag_id
         tag_whiskey = {}
         tag_whiskey["whiskey_id"] = whiskey["id"]
         tag_whiskey["tag_id"] = tag_id
         tag_whiskey["id"] = tag_whiskey_id
         tag_whiskey_id = tag_whiskey_id + 1
+        tag_whiskey["count"] = tag["count"]
+        tag_whiskey["normalized_count"] = tag["normalized_count"]
         tag_id = tag_id + 1
         tags.append(tag_info)
         whiskey_tags.append(tag_whiskey)
