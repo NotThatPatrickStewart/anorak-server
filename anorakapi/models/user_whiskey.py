@@ -7,5 +7,5 @@ class UserWhiskey(models.Model):
     list_img_url = models.CharField(max_length=255)
     notes = models.CharField(max_length=500)
     rating = models.IntegerField()
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     whiskey = models.ForeignKey("Whiskey", on_delete=models.CASCADE)
