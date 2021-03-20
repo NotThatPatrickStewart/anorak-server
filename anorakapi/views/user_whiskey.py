@@ -122,27 +122,14 @@ class UserWhiskeys(ViewSet):
         # Get all user_whiskey records from the database
         user_whiskeys = UserWhiskey.objects.all()
 
-        # Support filtering user_whiskeys by type
-        #    http://localhost:8000/user_whiskeys?type=1
-        #
-        # That URL will retrieve all tabletop user_whiskeys
-        user_whiskey_type = self.request.query_params.get('type', None)
-        if user_whiskey_type is not None:
-            user_whiskeys = user_whiskeys.filter(user_whiskeytype__id=user_whiskey_type)
-
-        serializer = UserWhiskeySerializer(
-            user_whiskeys, many=True, context={'request': request})
+        serializer = UserWhiskeySerializer(user_whiskeys, many=True, context={'request': request})
         return Response(serializer.data)
 
 
 class UserWhiskeySerializer(serializers.ModelSerializer):
-    """JSON serializer for user_whiskeys
-
-    Arguments:
-        serializer type
-    """
+    """JSON serializer for user_whiskeys"""
     class Meta:
         model = UserWhiskey
-        fields = ('id', 'title', 'number_of_players', 'user_whiskey', 'description', 'user_whiskey_type')
+        fields = ('id', 'title', 'list_img_url', 'notes', 'rating')
         depth = 1
         
