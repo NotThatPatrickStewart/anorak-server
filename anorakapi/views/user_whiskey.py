@@ -76,19 +76,19 @@ class UserWhiskeys(ViewSet):
         Returns:
             Response -- Empty body with 204 status code
         """
-        user_whiskey = UserWhiskey.objects.get(user=request.auth.user)
-
         # Do mostly the same thing as POST, but instead of
         # creating a new instance of UserWhiskey, get the user_whiskey record
         # from the database whose primary key is `pk`
         user_whiskey = UserWhiskey.objects.get(pk=pk)
         user_whiskey.title = request.data["title"]
-        user_whiskey.number_of_players = request.data["numberOfPlayers"]
-        user_whiskey.user_whiskey = user_whiskey
-        user_whiskey.description = request.data["description"]
+        user_whiskey.list_img_url = request.data["list_img_url"]
+        user_whiskey.notes = request.data["notes"]
+        user_whiskey.rating = request.data["rating"]
+        token = Token.objects.get(user = request.auth.user)
+        user_whiskey.user_id = token
 
-        user_whiskeytype = UserWhiskeyType.objects.get(pk=request.data["user_whiskeyTypeId"])
-        user_whiskey.user_whiskey_type = user_whiskeytype
+        whiskey = Whiskey.objects.get(pk=request.data["whiskey_id"])
+        user_whiskey.whiskey = whiskey
         user_whiskey.save()
 
         # 204 status code means everything worked but the
