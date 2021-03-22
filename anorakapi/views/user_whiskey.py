@@ -81,7 +81,6 @@ class UserWhiskeys(ViewSet):
         # from the database whose primary key is `pk`
 
         user_whiskey = UserWhiskey.objects.get(pk=pk)
-        # user_whiskey = UserWhiskey.objects.get(user = request.auth.user)
         user_whiskey.user = request.auth.user
         user_whiskey.title = request.data["title"]
         user_whiskey.list_img_url = request.data["list_img_url"]
