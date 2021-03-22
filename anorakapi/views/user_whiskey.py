@@ -23,13 +23,13 @@ class UserWhiskeys(ViewSet):
         # Create a new Python instance of the UserWhiskey class
         # and set its properties from what was sent in the
         # body of the request from the client.
+        
         user_whiskey = UserWhiskey()
+        user_whiskey.user = request.auth.user
         user_whiskey.title = request.data["title"]
         user_whiskey.list_img_url = request.data["list_img_url"]
         user_whiskey.notes = request.data["notes"]
         user_whiskey.rating = request.data["rating"]
-        token = Token.objects.get(user = request.auth.user)
-        user_whiskey.user_id = token
 
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed in the body of the request.
@@ -79,13 +79,14 @@ class UserWhiskeys(ViewSet):
         # Do mostly the same thing as POST, but instead of
         # creating a new instance of UserWhiskey, get the user_whiskey record
         # from the database whose primary key is `pk`
+
         user_whiskey = UserWhiskey.objects.get(pk=pk)
+        # user_whiskey = UserWhiskey.objects.get(user = request.auth.user)
+        user_whiskey.user = request.auth.user
         user_whiskey.title = request.data["title"]
         user_whiskey.list_img_url = request.data["list_img_url"]
         user_whiskey.notes = request.data["notes"]
         user_whiskey.rating = request.data["rating"]
-        token = Token.objects.get(user = request.auth.user)
-        user_whiskey.user_id = token
 
         whiskey = Whiskey.objects.get(pk=request.data["whiskey_id"])
         user_whiskey.whiskey = whiskey
