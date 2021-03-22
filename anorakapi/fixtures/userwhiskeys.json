@@ -1,0 +1,25 @@
+[
+    {
+        "model": "anorakapi.userwhiskey",
+        "pk": 1,
+        "fields": {
+            "list_img_url": "https://res.cloudinary.com/dt4sawqjx/image/upload/v1463682979/przkj3phtkchoyozalzj.jpg",
+            "notes": "Need to try",
+            "title": "Aberlour A'bunadh batch #36",
+            "whiskey_id": 27,
+            "user": 1
+        }
+    },
+    {
+        "model": "anorakapi.userwhiskey",
+        "pk": 2,
+        "fields": {
+            "list_img_url": "https://res.cloudinary.com/dt4sawqjx/image/upload/v1463683146/qktfqpp3cxsg3gr03tcg.jpg",
+            "notes": "Damn good",
+            "rating": 97,
+            "title": "Yamazaki 12",
+            "whiskey_id": 515,
+            "user": 1 
+        }
+    }
+]

@@ -1,0 +1,24 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "username": "me@me.com",
+            "first_name": "Patrick",
+            "last_name": "Stewart",
+            "email": "me@me.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$216000$qMRH8szID7Z8$Vljya2V3XfruOHuvx1hGz9ZyKg4bxbw7rc2WO0gTR7I=",
+            "username": "whiskey@whiskey.com",
+            "first_name": "Mr.",
+            "last_name": "Whiskey",
+            "email": "whiskey@whiskey.com"
+        }
+    }
+]
