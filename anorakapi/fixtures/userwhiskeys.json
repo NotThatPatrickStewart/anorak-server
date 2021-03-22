@@ -5,9 +5,9 @@
         "fields": {
             "list_img_url": "https://res.cloudinary.com/dt4sawqjx/image/upload/v1463682979/przkj3phtkchoyozalzj.jpg",
             "notes": "Need to try",
-            "rating": 55,
             "title": "Aberlour A'bunadh batch #36",
-            "whiskey_id": 27 
+            "whiskey_id": 27,
+            "user": 1
         }
     },
     {
@@ -18,8 +18,8 @@
             "notes": "Damn good",
             "rating": 97,
             "title": "Yamazaki 12",
-            "whiskey_id":515 
-
+            "whiskey_id": 515,
+            "user": 1 
         }
     }
 ]
