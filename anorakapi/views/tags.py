@@ -14,7 +14,7 @@ class Tags(ViewSet):
         """Handle GET requests for single tag
 
         Returns:
-            Response -- JSON serialized game type
+            Response -- JSON serialized tag
         """
 
         try:
