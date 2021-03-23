@@ -1,4 +1,5 @@
 """View module for handling requests about tags"""
+from decimal import Context
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseServerError
 from rest_framework import status
@@ -8,6 +9,20 @@ from rest_framework import serializers
 from anorakapi.models import Tag
 
 class Tags(ViewSet):
+
+    def retrieve(self, request, pk=None):
+        """Handle GET requests for single tag
+
+        Returns:
+            Response -- JSON serialized game type
+        """
+
+        try:
+            tags = Tag.objects.get(pk=pk)
+            serializer = TagSerializer(tags, context={'request': request})
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)
 
     def list(self, request):
         """Handle GET requests to tags resource
