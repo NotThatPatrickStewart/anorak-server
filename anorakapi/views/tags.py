@@ -46,5 +46,6 @@ class TagSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Tag
-        fields = ('id', 'title')
+        fields = ('id', 'title', 'relatedtag')
+        depth = 1
         
