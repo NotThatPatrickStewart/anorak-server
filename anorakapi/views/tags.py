@@ -18,8 +18,8 @@ class Tags(ViewSet):
         """
 
         try:
-            tags = Tag.objects.get(pk=pk)
-            serializer = TagSerializer(tags, context={'request': request})
+            tag = Tag.objects.get(pk=pk)
+            serializer = TagSerializer(tag, context={'request': request})
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)
