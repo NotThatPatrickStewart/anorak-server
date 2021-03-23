@@ -1,6 +1,7 @@
 """View module for handling requests about whiskeys"""
 from anorakapi.models.whiskey_tags import WhiskeyTag
 from django.core.exceptions import ValidationError
+from django.db.models import Max
 from django.http import HttpResponseServerError
 from rest_framework import status
 from rest_framework.viewsets import ViewSet
@@ -34,40 +35,41 @@ class Whiskeys(ViewSet):
         whiskeys = Whiskey.objects.all()
 
         # Support filtering whiskeys by tag
-        tag = self.request.query_params.get('whiskey_id', None)
+        # tag = whiskeys.filter(relatedwhiskey__normalized_count=11)
+        max_count = WhiskeyTag.objects.filter(whiskey_id=166).aggregate(Max('normalized_count'))
+        print("max_count")
+        print(max_count)
+        tag = Tag.objects.get(relatedtag__normalized_count=max_count['normalized_count__max'], relatedtag__whiskey_id=166)
+        print('tag')
+        print(tag.title)
         if tag is not None:
-            whiskeys = whiskeys.filter(tag__id=tag)
+            whiskeys = list(whiskeys.filter(relatedwhiskey__tag_id__title=tag.title))
+        print("whiskeys")
+        print(whiskeys)
 
         serializer = WhiskeySerializer(
             whiskeys, many=True, context={'request': request})
         return Response(serializer.data)
 
-class WhiskeyTagSerializer(serializers.ModelSerializer):
-    """JSON serializer for whiskey tags"""
-    class Meta:
-        model = WhiskeyTag
-        fields = ('id', 'normalized_count')
-
 class TagSerializer(serializers.ModelSerializer):
     """JSON serializer for tags"""
-    tag = WhiskeyTagSerializer(many=False)
     class Meta:
         model = Tag
-        fields = ('id', 'title', 'tag')
+        fields = ('id', 'title')
         depth = 1
 
 class WhiskeySerializer(serializers.ModelSerializer):
     """JSON serializer for whiskeys"""
+    tags = TagSerializer(many=True)
     class Meta:
         model = Whiskey
         fields = ('id', 'title', 'list_img_url', 'region', 'price')
-        depth = 1
+        depth = 2
 
-# class WhiskeySerializer(serializers.ModelSerializer):
-#     """JSON serializer for whiskeys"""
-#     whiskey = WhiskeyTagSerializer(many=False)
+# class WhiskeyTagSerializer(serializers.ModelSerializer):
+#     """JSON serializer for whiskey tags"""
 #     class Meta:
-#         model = Whiskey
-#         fields = ('id', 'title', 'list_img_url', 'region', 'price', 'whiskey')
-#         depth = 1
+#         model = WhiskeyTag
+#         fields = ('id',)
+#         depth = 2
         
