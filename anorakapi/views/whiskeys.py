@@ -10,6 +10,20 @@ from anorakapi.models import Whiskey, Tag, WhiskeyTag
 
 class Whiskeys(ViewSet):
 
+    def retrieve(self, request, pk=None):
+        """Handle GET requests for single whiskey
+
+        Returns:
+            Response -- JSON serialized whiskey instance
+        """
+
+        try:
+            whiskey = Whiskey.objects.get(pk=pk)
+            serializer = WhiskeySerializer(whiskey, context={'request': request})
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)
+
     def list(self, request):
         """Handle GET requests to whiskeys resource
 
