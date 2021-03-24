@@ -39,13 +39,25 @@ class Whiskeys(ViewSet):
         max_count = WhiskeyTag.objects.filter(whiskey_id=166).aggregate(Max('normalized_count'))
         print("max_count")
         print(max_count)
+       
         tag = Tag.objects.get(relatedtag__normalized_count=max_count['normalized_count__max'], relatedtag__whiskey_id=166)
         print('tag')
         print(tag.title)
+       
         if tag is not None:
+            result = WhiskeyTag.objects.filter(tag_id=tag.id) #This is bringing back a single instance, but would work if I refactor the fixture to not have a uniq pk for each tag instance
+            #find value normalized_count__max and whiskey_id 
             whiskeys = list(whiskeys.filter(relatedwhiskey__tag_id__title=tag.title))
+        print("result")
+        print(result)
         print("whiskeys")
         print(whiskeys)
+
+
+
+
+
+
 
         serializer = WhiskeySerializer(
             whiskeys, many=True, context={'request': request})
