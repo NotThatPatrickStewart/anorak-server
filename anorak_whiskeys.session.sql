@@ -9,6 +9,12 @@ SELECT
         ON t.id = wt.tag_id
     GROUP BY Whiskey;
 
+    SELECT
+        t.title as Flavor
+    FROM anorakapi_tag as t
+    GROUP BY Flavor;
+    
+
 --     def list(self, request):
 --         """Handle GET requests to whiskeys resource
 
