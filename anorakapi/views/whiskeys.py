@@ -72,7 +72,6 @@ class TagSerializer(serializers.ModelSerializer):
 
 class WhiskeySerializer(serializers.ModelSerializer):
     """JSON serializer for whiskeys"""
-    tags = TagSerializer(many=True)
     class Meta:
         model = Whiskey
         fields = ('id', 'title', 'list_img_url', 'region', 'price')
