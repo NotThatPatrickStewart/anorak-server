@@ -1,266 +1,464 @@
 [
     {
-        "id": 1,
-        "title": "caramel"
+        "model": "anorakapi.tag",
+        "pk": 1,
+        "fields": {
+            "title": "caramel"
+        }
     },
     {
-        "id": 2,
-        "title": "sweet"
+        "model": "anorakapi.tag",
+        "pk": 2,
+        "fields": {
+            "title": "sweet"
+        }
     },
     {
-        "id": 3,
-        "title": "spicy"
+        "model": "anorakapi.tag",
+        "pk": 3,
+        "fields": {
+            "title": "spicy"
+        }
     },
     {
-        "id": 4,
-        "title": "rich"
+        "model": "anorakapi.tag",
+        "pk": 4,
+        "fields": {
+            "title": "rich"
+        }
     },
     {
-        "id": 5,
-        "title": "ginger"
+        "model": "anorakapi.tag",
+        "pk": 5,
+        "fields": {
+            "title": "ginger"
+        }
     },
     {
-        "id": 6,
-        "title": "sherry"
+        "model": "anorakapi.tag",
+        "pk": 6,
+        "fields": {
+            "title": "sherry"
+        }
     },
     {
-        "id": 7,
-        "title": "sugar"
+        "model": "anorakapi.tag",
+        "pk": 7,
+        "fields": {
+            "title": "sugar"
+        }
     },
     {
-        "id": 8,
-        "title": "peppery"
+        "model": "anorakapi.tag",
+        "pk": 8,
+        "fields": {
+            "title": "peppery"
+        }
     },
     {
-        "id": 9,
-        "title": "nutmeg"
+        "model": "anorakapi.tag",
+        "pk": 9,
+        "fields": {
+            "title": "nutmeg"
+        }
     },
     {
-        "id": 10,
-        "title": "floral"
+        "model": "anorakapi.tag",
+        "pk": 10,
+        "fields": {
+            "title": "floral"
+        }
     },
     {
-        "id": 11,
-        "title": "cinnamon"
+        "model": "anorakapi.tag",
+        "pk": 11,
+        "fields": {
+            "title": "cinnamon"
+        }
     },
     {
-        "id": 12,
-        "title": "chocolate"
+        "model": "anorakapi.tag",
+        "pk": 12,
+        "fields": {
+            "title": "chocolate"
+        }
     },
     {
-        "id": 13,
-        "title": "buttery"
+        "model": "anorakapi.tag",
+        "pk": 13,
+        "fields": {
+            "title": "buttery"
+        }
     },
     {
-        "id": 14,
-        "title": "light"
+        "model": "anorakapi.tag",
+        "pk": 14,
+        "fields": {
+            "title": "light"
+        }
     },
     {
-        "id": 15,
-        "title": "complex"
+        "model": "anorakapi.tag",
+        "pk": 15,
+        "fields": {
+            "title": "complex"
+        }
     },
     {
-        "id": 16,
-        "title": "balanced"
+        "model": "anorakapi.tag",
+        "pk": 16,
+        "fields": {
+            "title": "balanced"
+        }
     },
     {
-        "id": 17,
-        "title": "zest"
+        "model": "anorakapi.tag",
+        "pk": 17,
+        "fields": {
+            "title": "zest"
+        }
     },
     {
-        "id": 18,
-        "title": "lemon"
+        "model": "anorakapi.tag",
+        "pk": 18,
+        "fields": {
+            "title": "lemon"
+        }
     },
     {
-        "id": 19,
-        "title": "fruity"
+        "model": "anorakapi.tag",
+        "pk": 19,
+        "fields": {
+            "title": "fruity"
+        }
     },
     {
-        "id": 20,
-        "title": "cherry"
+        "model": "anorakapi.tag",
+        "pk": 20,
+        "fields": {
+            "title": "cherry"
+        }
     },
     {
-        "id": 21,
-        "title": "sour"
+        "model": "anorakapi.tag",
+        "pk": 21,
+        "fields": {
+            "title": "sour"
+        }
     },
     {
-        "id": 22,
-        "title": "spices"
+        "model": "anorakapi.tag",
+        "pk": 22,
+        "fields": {
+            "title": "spices"
+        }
     },
     {
-        "id": 23,
-        "title": "toffee"
+        "model": "anorakapi.tag",
+        "pk": 23,
+        "fields": {
+            "title": "toffee"
+        }
     },
     {
-        "id": 24,
-        "title": "lingering"
+        "model": "anorakapi.tag",
+        "pk": 24,
+        "fields": {
+            "title": "lingering"
+        }
     },
     {
-        "id": 25,
-        "title": "orange"
+        "model": "anorakapi.tag",
+        "pk": 25,
+        "fields": {
+            "title": "orange"
+        }
     },
     {
-        "id": 26,
-        "title": "apple"
+        "model": "anorakapi.tag",
+        "pk": 26,
+        "fields": {
+            "title": "apple"
+        }
     },
     {
-        "id": 27,
-        "title": "salty"
+        "model": "anorakapi.tag",
+        "pk": 27,
+        "fields": {
+            "title": "salty"
+        }
     },
     {
-        "id": 28,
-        "title": "vanilla"
+        "model": "anorakapi.tag",
+        "pk": 28,
+        "fields": {
+            "title": "vanilla"
+        }
     },
     {
-        "id": 29,
-        "title": "honey"
+        "model": "anorakapi.tag",
+        "pk": 29,
+        "fields": {
+            "title": "honey"
+        }
     },
     {
-        "id": 30,
-        "title": "brown"
+        "model": "anorakapi.tag",
+        "pk": 30,
+        "fields": {
+            "title": "brown"
+        }
     },
     {
-        "id": 31,
-        "title": "oak"
+        "model": "anorakapi.tag",
+        "pk": 31,
+        "fields": {
+            "title": "oak"
+        }
     },
     {
-        "id": 32,
-        "title": "bitter"
+        "model": "anorakapi.tag",
+        "pk": 32,
+        "fields": {
+            "title": "bitter"
+        }
     },
     {
-        "id": 33,
-        "title": "butterscotch"
+        "model": "anorakapi.tag",
+        "pk": 33,
+        "fields": {
+            "title": "butterscotch"
+        }
     },
     {
-        "id": 34,
-        "title": "mild"
+        "model": "anorakapi.tag",
+        "pk": 34,
+        "fields": {
+            "title": "mild"
+        }
     },
     {
-        "id": 35,
-        "title": "dry"
+        "model": "anorakapi.tag",
+        "pk": 35,
+        "fields": {
+            "title": "dry"
+        }
     },
     {
-        "id": 36,
-        "title": "maple"
+        "model": "anorakapi.tag",
+        "pk": 36,
+        "fields": {
+            "title": "maple"
+        }
     },
     {
-        "id": 37,
-        "title": "herbal"
+        "model": "anorakapi.tag",
+        "pk": 37,
+        "fields": {
+            "title": "herbal"
+        }
     },
     {
-        "id": 38,
-        "title": "wood"
+        "model": "anorakapi.tag",
+        "pk": 38,
+        "fields": {
+            "title": "wood"
+        }
     },
     {
-        "id": 39,
-        "title": "tobacco"
+        "model": "anorakapi.tag",
+        "pk": 39,
+        "fields": {
+            "title": "tobacco"
+        }
     },
     {
-        "id": 40,
-        "title": "licorice"
+        "model": "anorakapi.tag",
+        "pk": 40,
+        "fields": {
+            "title": "licorice"
+        }
     },
     {
-        "id": 41,
-        "title": "coffee"
+        "model": "anorakapi.tag",
+        "pk": 41,
+        "fields": {
+            "title": "coffee"
+        }
     },
     {
-        "id": 42,
-        "title": "earthy"
+        "model": "anorakapi.tag",
+        "pk": 42,
+        "fields": {
+            "title": "earthy"
+        }
     },
     {
-        "id": 43,
-        "title": "peaty"
+        "model": "anorakapi.tag",
+        "pk": 43,
+        "fields": {
+            "title": "peaty"
+        }
     },
     {
-        "id": 44,
-        "title": "smokey"
+        "model": "anorakapi.tag",
+        "pk": 44,
+        "fields": {
+            "title": "smokey"
+        }
     },
     {
-        "id": 45,
-        "title": "creamy"
+        "model": "anorakapi.tag",
+        "pk": 45,
+        "fields": {
+            "title": "creamy"
+        }
     },
     {
-        "id": 46,
-        "title": "malty"
+        "model": "anorakapi.tag",
+        "pk": 46,
+        "fields": {
+            "title": "malty"
+        }
     },
     {
-        "id": 47,
-        "title": "barley"
+        "model": "anorakapi.tag",
+        "pk": 47,
+        "fields": {
+            "title": "barley"
+        }
     },
     {
-        "id": 48,
-        "title": "amber"
+        "model": "anorakapi.tag",
+        "pk": 48,
+        "fields": {
+            "title": "amber"
+        }
     },
     {
-        "id": 49,
-        "title": "old"
+        "model": "anorakapi.tag",
+        "pk": 49,
+        "fields": {
+            "title": "old"
+        }
     },
     {
-        "id": 50,
-        "title": "raisins"
+        "model": "anorakapi.tag",
+        "pk": 50,
+        "fields": {
+            "title": "raisins"
+        }
     },
     {
-        "id": 51,
-        "title": "cocoa"
+        "model": "anorakapi.tag",
+        "pk": 51,
+        "fields": {
+            "title": "cocoa"
+        }
     },
     {
-        "id": 52,
-        "title": "pear"
+        "model": "anorakapi.tag",
+        "pk": 52,
+        "fields": {
+            "title": "pear"
+        }
     },
     {
-        "id": 53,
-        "title": "candy"
+        "model": "anorakapi.tag",
+        "pk": 53,
+        "fields": {
+            "title": "candy"
+        }
     },
     {
-        "id": 54,
-        "title": "smooth"
+        "model": "anorakapi.tag",
+        "pk": 54,
+        "fields": {
+            "title": "smooth"
+        }
     },
     {
-        "id": 55,
-        "title": "corn"
+        "model": "anorakapi.tag",
+        "pk": 55,
+        "fields": {
+            "title": "corn"
+        }
     },
     {
-        "id": 56,
-        "title": "mellow"
+        "model": "anorakapi.tag",
+        "pk": 56,
+        "fields": {
+            "title": "mellow"
+        }
     },
     {
-        "id": 57,
-        "title": "citrus"
+        "model": "anorakapi.tag",
+        "pk": 57,
+        "fields": {
+            "title": "citrus"
+        }
     },
     {
-        "id": 58,
-        "title": "green"
+        "model": "anorakapi.tag",
+        "pk": 58,
+        "fields": {
+            "title": "green"
+        }
     },
     {
-        "id": 59,
-        "title": "heavy"
+        "model": "anorakapi.tag",
+        "pk": 59,
+        "fields": {
+            "title": "heavy"
+        }
     },
     {
-        "id": 60,
-        "title": "brine"
+        "model": "anorakapi.tag",
+        "pk": 60,
+        "fields": {
+            "title": "brine"
+        }
     },
     {
-        "id": 61,
-        "title": "nutty"
+        "model": "anorakapi.tag",
+        "pk": 61,
+        "fields": {
+            "title": "nutty"
+        }
     },
     {
-        "id": 62,
-        "title": "tea"
+        "model": "anorakapi.tag",
+        "pk": 62,
+        "fields": {
+            "title": "tea"
+        }
     },
     {
-        "id": 63,
-        "title": "clove"
+        "model": "anorakapi.tag",
+        "pk": 63,
+        "fields": {
+            "title": "clove"
+        }
     },
     {
-        "id": 64,
-        "title": "banana"
+        "model": "anorakapi.tag",
+        "pk": 64,
+        "fields": {
+            "title": "banana"
+        }
     },
     {
-        "id": 65,
-        "title": "mint"
+        "model": "anorakapi.tag",
+        "pk": 65,
+        "fields": {
+            "title": "mint"
+        }
     },
     {
-        "id": 66,
-        "title": "roses"
-    }
+        "model": "anorakapi.tag",
+        "pk": 66,
+        "fields": {
+            "title": "roses"
+        }   
+}
 ]
