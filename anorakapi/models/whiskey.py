@@ -7,4 +7,5 @@ class Whiskey(models.Model):
     region = models.CharField(max_length=50)
     price = models.FloatField()
 
+
     

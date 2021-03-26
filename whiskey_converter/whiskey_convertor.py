@@ -21,19 +21,25 @@ for whiskey in whiskey_dict["whiskeys"]:
     whiskeys.append(whiskey_info)
     
     for tag in whiskey["tags"]:
-        tag_info = {}
-        tag_info["title"] = tag["title"]
-        tag_info["id"] = tag_id
-        tag_whiskey = {}
-        tag_whiskey["whiskey_id"] = whiskey["id"]
-        tag_whiskey["tag_id"] = tag_id
-        tag_whiskey["id"] = tag_whiskey_id
-        tag_whiskey_id = tag_whiskey_id + 1
-        tag_whiskey["count"] = tag["count"]
-        tag_whiskey["normalized_count"] = tag["normalized_count"]
-        tag_id = tag_id + 1
-        tags.append(tag_info)
-        whiskey_tags.append(tag_whiskey)
+            tag_info = {}
+            tag_info["title"] = tag["title"]
+            tag_info["id"] = tag_id
+            found = False
+            for t in tags:
+                if t["title"] == tag["title"]:
+                    found = True
+            if not found:
+                tags.append(tag_info)
+                tag_id = tag_id + 1
+            tag_whiskey = {}
+            tag_whiskey["whiskey_id"] = whiskey["id"]
+            for t in tags:
+                if t["title"] == tag["title"]:
+                    tag_whiskey["tag_id"] = t["id"]
+            tag_whiskey["id"] = tag_whiskey_id
+            tag_whiskey_id = tag_whiskey_id + 1
+            tag_whiskey["normalized_count"] = tag["normalized_count"]
+            whiskey_tags.append(tag_whiskey)
 
     for comparable in whiskey["comparables"]:
         comparable_info = {}

@@ -33,7 +33,7 @@ class UserWhiskeys(ViewSet):
 
         # Use the Django ORM to get the record from the database
         # whose `id` is what the client passed in the body of the request.
-        whiskey = Whiskey.objects.get(pk=request.data["whiskey_id"])
+        whiskey = Whiskey.objects.get(pk=request.data["whiskeyId"])
         user_whiskey.whiskey = whiskey
 
         # Try to save the new user_whiskey to the database, then
@@ -81,14 +81,13 @@ class UserWhiskeys(ViewSet):
         # from the database whose primary key is `pk`
 
         user_whiskey = UserWhiskey.objects.get(pk=pk)
-        # user_whiskey = UserWhiskey.objects.get(user = request.auth.user)
         user_whiskey.user = request.auth.user
         user_whiskey.title = request.data["title"]
         user_whiskey.list_img_url = request.data["list_img_url"]
         user_whiskey.notes = request.data["notes"]
         user_whiskey.rating = request.data["rating"]
 
-        whiskey = Whiskey.objects.get(pk=request.data["whiskey_id"])
+        whiskey = Whiskey.objects.get(pk=request.data["whiskeyId"])
         user_whiskey.whiskey = whiskey
         user_whiskey.save()
 
@@ -126,11 +125,18 @@ class UserWhiskeys(ViewSet):
         serializer = UserWhiskeySerializer(user_whiskeys, many=True, context={'request': request})
         return Response(serializer.data)
 
+    def partial_update(self, request, pk=None):
+        print("request", request.data)
+        user_whiskey = UserWhiskey.objects.get(pk=pk)
+        for key in request.data:
+            setattr(user_whiskey, key, request.data[key])
+        user_whiskey.save()
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
 
 class UserWhiskeySerializer(serializers.ModelSerializer):
     """JSON serializer for user_whiskeys"""
     class Meta:
         model = UserWhiskey
-        fields = ('id', 'title', 'list_img_url', 'notes', 'rating')
+        fields = ('id', 'title', 'list_img_url', 'notes', 'rating', 'whiskey_id', 'user')
         depth = 1
         

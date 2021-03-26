@@ -8,5 +8,5 @@ python3 manage.py loaddata users
 python3 manage.py loaddata tokens
 python3 manage.py loaddata whiskeys
 python3 manage.py loaddata tags
-python3 manage.py loaddata userwhiskeys
 python3 manage.py loaddata whiskey_tags
+python3 manage.py loaddata userwhiskeys
