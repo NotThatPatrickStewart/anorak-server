@@ -8,5 +8,5 @@
             "database": "db.sqlite3"
         }
     ],
-    "python.pythonPath": "/Users/phs/.pyenv/shims/python"
+    "python.pythonPath": "/Users/phs/.local/share/virtualenvs/anorak-server-Jyylprcp/bin/python"
 }
