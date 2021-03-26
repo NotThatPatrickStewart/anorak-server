@@ -1,5 +1,4 @@
 """View module for handling requests about whiskeys"""
-from anorakapi.models.whiskey_tags import WhiskeyTag
 from django.core.exceptions import ValidationError
 from django.db.models import Max
 from django.http import HttpResponseServerError
@@ -7,7 +6,7 @@ from rest_framework import status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from anorakapi.models import Whiskey, Tag, WhiskeyTag, whiskey
+from anorakapi.models import Whiskey, Tag, WhiskeyTag
 
 class Whiskeys(ViewSet):
 
@@ -35,25 +34,24 @@ class Whiskeys(ViewSet):
         whiskeys = Whiskey.objects.all()
 
         # Support filtering whiskeys by tag
-        #find a whiskey by title here, so that the filter ˇ can filter on it instead of a hard-coded number
-       
         max_count = Whiskey.objects.all()
-        search = self.request.query_params.get('title', None) #search is coming back None, 'title' isn't right?
+        search = self.request.query_params.get('searchterm', None)
         if search is not None:
-            max_count = WhiskeyTag.objects.filter(whiskey_id=search).aggregate(Max('normalized_count')) #finds the highest nomalized count for a particular whiskey
+            whiskeys = whiskeys.filter(title__istartswith=search).first()
+        max_count = WhiskeyTag.objects.filter(whiskey_id=whiskeys.id).aggregate(Max('normalized_count')) #finds the highest nomalized count for a particular whiskey
         print("search")
         print(search)
         print("max_count")
         print(max_count)
        
-        tag = Tag.objects.get(relatedtag__normalized_count=max_count['normalized_count__max'], relatedtag__whiskey_id=166) #finds the id of the tag associated with that count
+        tag = Tag.objects.filter(relatedtag__normalized_count=max_count['normalized_count__max'], relatedtag__whiskey_id=whiskeys.id).first() #finds the id of the tag associated with that count
         print('tag')
         print(tag.title)
        
         if tag is not None:
-            result = WhiskeyTag.objects.filter(tag_id=tag.id).aggregate(Max('normalized_count')) #finds the highest nomalized count for a particular tag  
+            result = WhiskeyTag.objects.filter(tag_id=tag.id).aggregate(Max('normalized_count')) #finds the highest nomalized count for a particular tag
 
-            whiskeys = Whiskey.objects.filter(relatedwhiskey__normalized_count=result['normalized_count__max'], relatedwhiskey__tag_id=tag.id) #finds the whiskey object from the above result
+            comparables = Whiskey.objects.filter(relatedwhiskey__normalized_count=result['normalized_count__max'], relatedwhiskey__tag_id=tag.id) #finds the whiskey object from the above result
             
         print("result")
         print(result)
@@ -61,8 +59,14 @@ class Whiskeys(ViewSet):
         print(whiskeys)
 
         serializer = WhiskeySerializer(
-            whiskeys, many=True, context={'request': request})
-        return Response(serializer.data)
+            whiskeys, many=False, context={'request': request})
+        data=serializer.data #63-66 allows me to use comprables JS syntax
+        serializer= WhiskeySerializer(
+            comparables, many=True, context={'request': request})
+        data['comparables']=serializer.data
+        response_as_arr = [] #67-69: response was coming back as a single object, wraps it in an arry
+        response_as_arr.append(data)
+        return Response(response_as_arr)
 
 class TagSerializer(serializers.ModelSerializer):
     """JSON serializer for tags"""
