@@ -90,8 +90,7 @@ Make a GET request to `http://localhost:8000/userwhiskeys/3`, the number after `
 
 #### Create new user whiskey
 Make a POST request to `http://localhost:8000/userwhiskeys`
-The body of the request must be in JSON format and include the name of the envelope and budget.
-e.g. 
+The body of the request must be in JSON format and include the follwoing data:
 ```JSON
   {
         "title": "Aberlour A'bunadh batch #36",
@@ -129,9 +128,9 @@ The returned data will look like this:
 ```
 #### Edit user whiskey
 Make a PUT request to `http://localhost:8000/userwhiskeys/2`, the number after `userwhiskeys/` being the id of the desired user whiskey.
-The body should contain the same data as the for the POST request. For example, if we were to change the rating fron null to 58 and change the note for the above created user whiskey, we would make a PUT request to `http://localhost:8000/userwhiskeys/2`:
+The body should contain the same data as the for the POST request. For example, if we were to change the rating from null to 58 and change the note for the above created user whiskey, we would make a PUT request to `http://localhost:8000/userwhiskeys/2`:
 
-```json
+```JSON
   {
         "title": "Aberlour A'bunadh batch #36",
         "list_img_url": "https://res.cloudinary.com/dt4sawqjx/image/upload/v1463682979/przkj3phtkchoyozalzj.jpg",
