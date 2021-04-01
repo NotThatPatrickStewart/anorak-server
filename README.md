@@ -2,7 +2,7 @@
 
 ## Resources
 * Users
-* Auth tokens
+* Authorization Tokens
 * Whiskeys
 * User Whiskeys
 * Tags
