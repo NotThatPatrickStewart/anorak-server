@@ -6,7 +6,6 @@
 * Whiskeys
 * User Whiskeys
 * Tags
-* Whiskey Tags
 
 ### Running the server
 In the terminal, run the commands (It is necessary to install python and pipenv prior to running these commands): 
