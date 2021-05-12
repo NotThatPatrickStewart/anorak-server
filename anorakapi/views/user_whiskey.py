@@ -120,7 +120,7 @@ class UserWhiskeys(ViewSet):
             Response -- JSON serialized list of user_whiskeys
         """
         # Get all user_whiskey records from the database, filter whiskeys by rating
-        user_whiskeys = UserWhiskey.objects.all().order_by('-rating')
+        user_whiskeys = UserWhiskey.objects.all().order_by('-rating', 'title')
 
         serializer = UserWhiskeySerializer(user_whiskeys, many=True, context={'request': request})
         return Response(serializer.data)
