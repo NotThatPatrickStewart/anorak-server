@@ -122,6 +122,9 @@ class UserWhiskeys(ViewSet):
         # Get all user_whiskey records from the database
         user_whiskeys = UserWhiskey.objects.all()
 
+        # Filter whiskeys by rating if not Null or alphabetically if Null
+        #user_whiskeys = sorted("rating", reverse=True)
+
         serializer = UserWhiskeySerializer(user_whiskeys, many=True, context={'request': request})
         return Response(serializer.data)
 
