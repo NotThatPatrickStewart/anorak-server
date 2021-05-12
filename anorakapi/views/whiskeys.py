@@ -49,7 +49,7 @@ class Whiskeys(ViewSet):
         print(tag.title)
        
         if tag is not None:
-            result = WhiskeyTag.objects.filter(tag_id=tag.id).aggregate(Max('normalized_count')) #finds the highest nomalized count for a particular tag
+            result = WhiskeyTag.objects.filter(tag_id=tag.id).aggregate(Max('normalized_count')) #finds the highest normalized count for a particular tag
 
             comparables = Whiskey.objects.filter(relatedwhiskey__normalized_count=result['normalized_count__max'], relatedwhiskey__tag_id=tag.id) #finds the whiskey object from the above result
             
