@@ -123,7 +123,7 @@ class UserWhiskeys(ViewSet):
         user_whiskeys = UserWhiskey.objects.all()
 
         # Filter whiskeys by rating
-        user_whiskeys = sorted(request.data["rating"], reverse=True)
+        sorted(user_whiskeys, key=lambda user_whiskey: user_whiskey.rating, reverse=True)
 
         serializer = UserWhiskeySerializer(user_whiskeys, many=True, context={'request': request})
         return Response(serializer.data)
