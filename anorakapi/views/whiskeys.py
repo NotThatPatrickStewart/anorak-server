@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers
-from anorakapi.models import Whiskey, Tag, WhiskeyTag
+from anorakapi.models import Whiskey, Tag, WhiskeyTag, UserWhiskey
 
 class Whiskeys(ViewSet):
 
@@ -39,6 +39,7 @@ class Whiskeys(ViewSet):
         if search is not None:
             whiskeys = whiskeys.filter(title__istartswith=search).first()
         max_count = WhiskeyTag.objects.filter(whiskey_id=whiskeys.id).aggregate(Max('normalized_count')) #finds the highest nomalized count for a particular whiskey
+        
         print("search")
         print(search)
         print("max_count")
